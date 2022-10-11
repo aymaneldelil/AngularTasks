@@ -1,0 +1,32 @@
+
+<div class="product-list">
+    <div  class="product" *ngFor="let item of prdFilterCat"
+    [ngClass]="{'outOfStock': item.quantity == 0}">
+        <div class="container">
+            <div class="image">
+                <img [src]="item.imgurl" alt="" srcset="">
+            </div>
+            <div class="proDetails">
+                <h3 for="">{{item.name}}</h3>
+                <div [ngSwitch]="item.category">
+                    <span *ngSwitchCase="1">labtop</span>
+                    <span *ngSwitchCase="2">Glass</span>
+                    <span *ngSwitchCase="3">Headphones</span>
+                    <span *ngSwitchCase="4">Mobile</span>
+                    <span *ngSwitchCase="5">Tablets</span>
+                </div>
+                <span>{{item.price}} $</span>
+            </div>
+            <button type="submit">Add to Cart</button>
+            <div [ngSwitch]="item.quantity">
+                <span *ngSwitchCase="0" >Out Of Stock</span>
+                <span *ngSwitchCase="1">Last Item</span>
+                <span *ngSwitchDefault="">{{item.quantity}} in the stock</span>
+
+
+            </div>
+        </div>
+    </div>
+
+
+</div>

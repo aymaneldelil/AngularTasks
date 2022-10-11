@@ -1,0 +1,8 @@
+<div class="selectCategory">
+    <select name="category" id="categorylist" [(ngModel)]="selectedcatID">
+        <option *ngFor="let cat of catlist" value="{{cat.id}}">{{cat.name}}</option>
+    </select>
+    
+</div>
+
+<app-products  [selectCatID] = "selectedcatID" ></app-products>
